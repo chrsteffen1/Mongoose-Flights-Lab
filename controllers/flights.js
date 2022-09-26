@@ -3,6 +3,7 @@ import {Flight} from '../models/flights.js'
 
 
 function newFlight(req,res) {
+  const newFlight = new Flight()
   res.render('flights/new', {
     title: 'Add Flight'
   })
@@ -60,10 +61,21 @@ function deleteFlight(req,res){
   })
 }
 
+function edit(req,res){
+  Flight.findById(req.params.id)
+  .then(flight => {
+    res.redner('flights/edit', {
+      flight,
+      title: 'Edit Flight'
+    })
+  })
+}
+
 export {
   newFlight as new,
   create,
   index,
   show,
   deleteFlight as delete,
+  edit,
 }
