@@ -17,6 +17,7 @@ function create(req, res) {
     res.redirect(`/flights/all`)
   })
   .catch(err => {
+    console.log(err)
     res.redirect('/flights/all')
   })
 }
