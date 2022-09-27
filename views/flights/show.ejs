@@ -24,9 +24,9 @@
       action="/flights/<%= flight._id %>/tickets"
       method="POST"
     >
-      <label for="seat-textarea">Seat:</label>
+      <label for="seat-textarea">Seat (select A-F and 1-99):</label>
       <input name="seat" required pattern="[A-F][1-9]\d?">
-      <label for="price-select">Price:</label>
+      <label for="price-select">Price $:</label>
       <input name="price" id="price">
       <button type="submit">Select Seat</button>
     </form>
@@ -43,6 +43,11 @@
           <tr>
             <td><%= ticket.seat %></td>
             <td><%= ticket.price %></td>
+            <td>
+              <form action="flights/<%=flight._id%>/tickets/<%= ticket._id %>?_method=DELETE" method="POST">
+                <button>X</button>
+              </form>
+            </td>
           </tr>
           <% }) %> 
       </tbody>
