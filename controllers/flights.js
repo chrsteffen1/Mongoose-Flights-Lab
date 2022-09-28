@@ -41,7 +41,7 @@ function show(req,res){
   Flight.findById(req.params.id)
   .populate('meals')
   .then(flight => {
-    Meal.find({_id: {$nin: flight.meal}})
+    Meal.find({_id: {$nin: flight.meals}})
     .then(meals => {
       res.render('flights/show', { 
         title: 'Flight Detail', 
