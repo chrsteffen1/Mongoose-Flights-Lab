@@ -20,12 +20,10 @@
     <div>Meals</div>
     <ul>
       <% flight.meals.forEach(meal => { %> 
-        <li><%= meal.name %>
           <form action="flights/<%=flight._id%>/meals/<%= meal._id %>?_method=DELETE" method="POST">
-            <button>X</button>
+            <li><%= meal.name %> <button>X</button></li>
           </form>
-        </li>
-        <% }) %> 
+      <% }) %> 
     </ul>
   </section>
   <form id="add-meals" action="/flights/<%= flight._id %>/meals" method="POST">

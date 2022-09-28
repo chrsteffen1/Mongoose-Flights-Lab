@@ -110,7 +110,6 @@ function createTicket(req, res) {
 function deleteTicket(req,res){
   Flight.findById(req.params.flightId)
   .then(flight => {
-    console.log(flight)
     flight.tickets.id(req.params.ticketId).remove()
     flight.save()
     .then(() => {
@@ -141,7 +140,6 @@ function addToMeal(req, res) {
 function deleteMeals(req,res){
   Flight.findById(req.params.flightId)
   .then(flight => {
-    console.log(flight)
     flight.meals.remove(req.params.mealId)
     flight.save()
     .then(() => {
